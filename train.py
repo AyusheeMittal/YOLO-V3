@@ -112,7 +112,7 @@ def train():
 
     start_epoch = 0
     best_fitness = 0.0
-    attempt_download(weights)
+    #attempt_download(weights)
     if weights.endswith('.pt'):  # pytorch format
         # possible weights are '*.pt', 'yolov3-spp.pt', 'yolov3-tiny.pt' etc.
         chkpt = torch.load(weights, map_location=device)
@@ -139,9 +139,9 @@ def train():
         start_epoch = chkpt['epoch'] + 1
         del chkpt
 
-    elif len(weights) > 0:  # darknet format
+    #elif len(weights) > 0:  # darknet format
         # possible weights are '*.weights', 'yolov3-tiny.conv.15',  'darknet53.conv.74' etc.
-        load_darknet_weights(model, weights)
+        #load_darknet_weights(model, weights)
 
     # Mixed precision training https://github.com/NVIDIA/apex
     if mixed_precision:
