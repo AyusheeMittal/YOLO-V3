@@ -399,6 +399,7 @@ def compute_loss(p, targets, model):  # predictions, targets, model
         nb = len(b)
         if nb:  # number of targets
             ng += nb
+            print(b, a, gj, gi)
             ps = pi[b, a, gj, gi]  # prediction subset corresponding to targets
             # ps[:, 2:4] = torch.sigmoid(ps[:, 2:4])  # wh power loss (uncomment)
 
