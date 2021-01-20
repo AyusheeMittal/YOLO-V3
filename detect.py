@@ -184,4 +184,3 @@ if __name__ == '__main__':
 
     with torch.no_grad():
         detect()
-© 2021 GitHub, Inc.
