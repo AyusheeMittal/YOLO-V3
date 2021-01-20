@@ -392,7 +392,7 @@ def compute_loss(p, targets, model):  # predictions, targets, model
     np, ng = 0, 0  # number grid points, targets
     for i, pi in enumerate(p):  # layer index, layer predictions
         b, a, gj, gi = indices[i]  # image, anchor, gridy, gridx
-        print("pi shape", pi.shape)
+        #print("pi shape", pi.shape)
         tobj = torch.zeros_like(pi[..., 0])  # target obj
         np += tobj.numel()
 
@@ -400,9 +400,9 @@ def compute_loss(p, targets, model):  # predictions, targets, model
         nb = len(b)
         if nb:  # number of targets
             ng += nb
-            print("b, a, gj, gi", b, a, gj, gi)
+            #print("b, a, gj, gi", b, a, gj, gi)
             ps = pi[b, a, gj, gi]  # prediction subset corresponding to targets
-            print("ps", ps)
+            #print("ps", ps)
             # ps[:, 2:4] = torch.sigmoid(ps[:, 2:4])  # wh power loss (uncomment)
 
             # GIoU
@@ -415,9 +415,9 @@ def compute_loss(p, targets, model):  # predictions, targets, model
 
             if model.nc > 1:  # cls loss (only if multiple classes)
                 t = torch.full_like(ps[:, 5:], cn)  # targets
-                print("t shape", t.shape)
+                #print("t shape", t.shape)
                 t[range(nb), tcls[i]] = cp
-                print("ps shape", ps.shape)
+                #print("ps shape", ps.shape)
                 lcls += BCEcls(ps[:, 5:], t)  # BCE
                 # lcls += CE(ps[:, 5:], tcls[i])  # CE
 
