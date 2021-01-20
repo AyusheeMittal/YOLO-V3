@@ -417,7 +417,8 @@ def compute_loss(p, targets, model):  # predictions, targets, model
                 t = torch.full_like(ps[:, 5:], cn)  # targets
                 print("t shape", t.shape)
                 t[range(nb), tcls[i]] = cp
-                print("cp shape", cp.shape)
+                temp = torch.rand(ps[:, 5:])
+                print("temp shape", temp.shape)
                 lcls += BCEcls(ps[:, 5:], t)  # BCE
                 # lcls += CE(ps[:, 5:], tcls[i])  # CE
 
