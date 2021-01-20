@@ -415,8 +415,10 @@ def compute_loss(p, targets, model):  # predictions, targets, model
 
             if model.nc > 1:  # cls loss (only if multiple classes)
                 t = torch.full_like(ps[:, 5:], cn)  # targets
+                print("t shape", t.shape)
                 t[range(nb), tcls[i]] = cp
-                lcls += BCEcls(ps[:, 5], t)  # BCE
+                print("cp shape", cp.shape)
+                lcls += BCEcls(ps[:, 5:], t)  # BCE
                 # lcls += CE(ps[:, 5:], tcls[i])  # CE
 
             # Append targets to text file
