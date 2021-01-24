@@ -1,3 +1,5 @@
-./data/images/img (8).jpg
-./data/images/img (19).jpg
-./data/images/img (32).jpg
+./data/customdata/images/img (8).jpg
+./data/customdata/images/img (19).jpg
+./data/customdata/images/img (32).jpg
+./data/customdata/images/images (1).jpg
+./data/customdata/images/images (19).jpg
